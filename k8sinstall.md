@@ -192,12 +192,15 @@ kubectl create -f cluster-test.yaml # 이거 시간 오래걸림
 ```
 kubectl create -f csi/rbd/storageclass.yaml # 블록스토리지 설치
 ```
+
 ```
-kubectl -n rook-ceph get pod -l app=rook-ceph-mds
+kubectl create -f filesystem.yaml # for 3 worker nodes   
+kubectl create -f filesystem-test.yaml # for 1 worker nodes
+kubectl -n rook-ceph get pod -l app=rook-ceph-mds # check pod status
 ```
-NAME                                      READY     STATUS    RESTARTS   AGE
-rook-ceph-mds-myfs-7d59fdfcf4-h8kw9       1/1       Running   0          12s
-rook-ceph-mds-myfs-7d59fdfcf4-kgkjp       1/1       Running   0          12s
+NAME                                      READY     STATUS    RESTARTS   AGE   
+rook-ceph-mds-myfs-7d59fdfcf4-h8kw9       1/1       Running   0          12s   
+rook-ceph-mds-myfs-7d59fdfcf4-kgkjp       1/1       Running   0          12s   
 이런식으로 myfs 해당하는 파드 다 러닝 된 다음에 밑으로 진행
 
 ```
