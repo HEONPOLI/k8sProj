@@ -219,3 +219,9 @@ yaml 파일 argument 항목에서 --kubelet-insecure-tls 를 추가해준다
 kubectl create -f components.yaml # 메트릭스 서버 설치
 
 ```
+
+```
+kubectl completion bash | sudo tee /etc/bash_completion.d/kubectl 
+```
+kubectl 관련 명령어의 bash completion(자동완성) 을 해준다.
+
