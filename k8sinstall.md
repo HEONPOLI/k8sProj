@@ -60,10 +60,13 @@ kubectl taint nodes --all node-role.kubernetes.io/master- # 이거해줘야 rook
 sudo kubeadm join <컨트롤플레인 ip>:<포트> --token <토큰찾은거> --discovery-token-ca-cert-hash <해시값 찾은거>
 ```   
 * 해시값, 토큰 찾는 방법
-```
+
 #토큰 찾기
+```
 kubeadm token list # k-control에서
+```
 #해시값 찾기
+```
 openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | openssl rsa -pubin -outform der 2>/dev/null | \
    openssl dgst -sha256 -hex | sed 's/^.* //'
 ```
@@ -131,14 +134,19 @@ kubectl, kubelet, kubeadm 버전의 SKEW가 Control Plane과 일치
 가정에 맞다면
 
 토큰찾기:    
+```
 kubeadm token list # k-control에서
+```
 해쉬값 찾기:    
+```
 openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | openssl rsa -pubin -outform der 2>/dev/null | \
    openssl dgst -sha256 -hex | sed 's/^.* //'
-
+```
 
 조인하기:   
+```
 sudo kubeadm join 192.168.200.50:6443 --token <토큰찾은거> --discovery-token-ca-cert-hash <해시값 찾은거>
+```
 
 클러스터 구성에서 노드를 삭제   
 
@@ -151,14 +159,14 @@ kubectl delete node [해당노드 이름]
 
 
 ### ADD ON 설치
-* Metallb 설치   
-  ```
+* Metallb 설치
+```
   kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.10.2/manifests/namespace.yaml
 
     kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.10.2/manifests/metallb.yaml
 
     kubectl apply -f config.yaml 
-```   
+```
 시스템 돌아가는 거 확인 → kubectl get all -n metallb-system 
 다 running이면 된다. completed 있을 수도?
 
