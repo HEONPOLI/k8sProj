@@ -178,7 +178,7 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/cont
 ingress-nginx-controller가 running이나 컴플리티드면 밑으로 진행 
 ```
 kubectl edit svc -n ingress-nginx ingress-nginx-controller # spec ip addition 192.168.200.51
-
+```
 * rook-ceph 설치(워커노드 1개임을 가정)   
 [rook.io](https://rook.io/)
 ```
