@@ -229,7 +229,8 @@ kubectl create -f components.yaml # 메트릭스 서버 설치
 ```
 
 ```
-kubectl completion bash | sudo tee /etc/bash_completion.d/kubectl 
+kubectl completion bash | sudo tee /etc/bash_completion.d/kubectl
+exec bash # bash 다시 접속
 ```
 kubectl 관련 명령어의 bash completion(자동완성) 을 해준다.
 
