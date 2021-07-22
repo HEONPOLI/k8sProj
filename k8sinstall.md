@@ -221,7 +221,7 @@ kubectl create -f csi/cephfs/storageclass.yaml #파일 스토리지 설치
 wget https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
 ```   
 yaml 파일만 따로 받아온다
-<img src="./image/20210718232041.png" width="800px" height="50px" ></img><br/>
+<img src="./image/20210718232041.png"></img><br/>
 yaml 파일 argument 항목에서 --kubelet-insecure-tls 를 추가해준다
 ```
 kubectl create -f components.yaml # 메트릭스 서버 설치
